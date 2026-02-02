@@ -5,11 +5,19 @@
   "main": "src/hello.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "start:prod": "pm2 start src/index.js --name repositorioaws",
+    "stop": "pm2 stop repositorioaws",
+    "restart": "pm2 restart repositorioaws",
+    "logs": "pm2 logs repositorioaws",
+    "status": "pm2 status"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "pm2": "^5.3.0"
+  },
   "devDependencies": {
     "jest": "^29.7.0"
   }

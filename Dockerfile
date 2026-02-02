@@ -7,14 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies (including PM2)
 RUN npm ci --only=production
 
 # Copy application source code
 COPY src/ ./src/
 
-# Expose port (optional, if you add a web server later)
-# EXPOSE 3000
+# Expose port 3000
+EXPOSE 3000
 
-# Command to run the application
-CMD ["npm", "start"]
+# Command to run the application with PM2
+CMD ["npx", "pm2-runtime", "start", "src/index.js", "--name", "repositorioaws"]
