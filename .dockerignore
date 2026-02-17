@@ -4,5 +4,3 @@ coverage
 .git
 .gitignore
 README.md
-tests
-jest.config.js
