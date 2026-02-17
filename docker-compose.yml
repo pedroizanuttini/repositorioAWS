@@ -1,8 +1,20 @@
 version: '3.8'
 
 services:
+  test:
+    build:
+      context: .
+      target: test
+    container_name: repositorioaws-test
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    command: npm run test
+
   app:
-    image: npm:app
+    build:
+      context: .
+      target: production
     container_name: repositorioaws-app
     ports:
       - "3000:3000"
