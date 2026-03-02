@@ -13,7 +13,12 @@ fi
 # Clean up old application files (but keep docker-compose.prod.yml)
 echo "Cleaning up old application files..."
 cd /home/ec2-user
-rm -rf app.bak
+# ensure we have permission to remove or move the old directory
+if [ -d app.bak ]; then
+  echo "Adjusting ownership of app.bak to ec2-user..."
+  sudo chown -R ec2-user:ec2-user app.bak || true
+  sudo rm -rf app.bak || true
+fi
 if [ -d app ]; then
   mv app app.bak
 fi
