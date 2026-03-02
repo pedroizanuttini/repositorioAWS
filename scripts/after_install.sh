@@ -9,7 +9,7 @@ cd /home/ec2-user/app
 IMAGE_TAG=latest
 export IMAGE_TAG
 
-echo "Forcing use of tag: $IMAGE_TAG" > .env
+echo "IMAGE_TAG=$IMAGE_TAG" > .env
 
 echo "IMAGE_TAG=$IMAGE_TAG"
 
