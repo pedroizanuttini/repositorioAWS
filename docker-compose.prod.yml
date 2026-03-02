@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    image: 307553794930.dkr.ecr.ap-southeast-2.amazonaws.com/node-example:${IMAGE_TAG:-latest}
+    container_name: repositorioaws-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    restart: unless-stopped
