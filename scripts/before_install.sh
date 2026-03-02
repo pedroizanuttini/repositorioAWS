@@ -7,7 +7,7 @@ echo "Running BeforeInstall..."
 cd /home/ec2-user/app || true
 if [ -f docker-compose.prod.yml ]; then
   echo "Stopping existing containers..."
-  docker-compose -f docker-compose.prod.yml down || true
+  sudo docker-compose -f docker-compose.prod.yml down || true
 fi
 
 # Clean up old application files (but keep docker-compose.prod.yml)

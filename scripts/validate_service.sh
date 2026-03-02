@@ -4,7 +4,7 @@ set -e
 echo "Running ValidateService..."
 
 # Check if container is running
-if ! docker ps | grep -q repositorioaws-app; then
+if ! sudo docker ps | grep -q repositorioaws-app; then
   echo "ERROR: Container is not running!"
   exit 1
 fi
